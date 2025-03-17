@@ -1,0 +1,22 @@
+{
+  "name": "encurtador-de-url",
+  "version": "1.0.0",
+  "description": "Encurtador de URL",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChristianCMM/Encurtador-de-URL.git"
+  },
+  "author": "Christian Mattos Moreira",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ChristianCMM/Encurtador-de-URL/issues"
+  },
+  "homepage": "https://github.com/ChristianCMM/Encurtador-de-URL#readme",
+  "dependencies": {
+    "axios": "^1.8.2"
+  }
+}
