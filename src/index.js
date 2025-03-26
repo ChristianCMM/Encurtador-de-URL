@@ -1,32 +1,30 @@
-const axios = require('axios')
-const http = require('http')
-const crypto = require('crypto')
+const axios = require('axios').default
+const express = require('express')
 
-//const url = "https://www.google.com.br/search?q=papagaio"
+const app = express()
 
-// configurando o objeto que irá utilizar o algoritmo de criptografia e o que será criptografado
-const DADOS_CRIPTOGRAFAR={
-    algoritmo: 'aes256',
-    segredo: 'parametros',
-    tipo: 'hex'
-}
+const urlInserida = new Object({
+    url:"https://www.google.com.br/search?q=papagaio"
+})
 
-function criptografar(url){
-    // separando os parametros da url
-    const arrayDaURL = url.split('?')
-    const parametros = arrayDaURL[1].toString()
-    // criptografando os parametros da url
-    const cipher = crypto.createCipher(DADOS_CRIPTOGRAFAR.algoritmo,DADOS_CRIPTOGRAFAR.segredo)
-    cipher.update(parametros)
+app.listen(8080,()=>{
+    console.log('Servidor Online')
+})
 
-    return cipher.final(DADOS_CRIPTOGRAFAR.tipo)    
-}
+app.get('/',(response)=>{
+    response.send(urlInserida)
+})
 
-function descriptografar(url){
-    const decipher = crypto.createDecipher(DADOS_CRIPTOGRAFAR.algoritmo,DADOS_CRIPTOGRAFAR.segredo)
-    decipher.update(url,DADOS_CRIPTOGRAFAR.tipo)
-    return decipher.final()
-}
-console.log(descriptografar(criptografar("https://www.google.com.br/search?q=papagaio")))
 
-//console.log(criptografar("https://www.google.com.br/search?q=papagaio"))
+// base para encriptar e decriptar a string
+const string = 'Exemplo de string'
+// encriptar
+const base64 = btoa(string)
+
+console.log(base64)
+// decriptar
+const novaString = atob(base64)
+
+console.log(novaString)
+
+//const urlInserida = "https://www.google.com.br/search?q=papagaio"

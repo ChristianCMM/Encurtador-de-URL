@@ -4,6 +4,7 @@
   "description": "Encurtador de URL",
   "main": "index.js",
   "scripts": {
+    "start": "src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -17,6 +18,10 @@
   },
   "homepage": "https://github.com/ChristianCMM/Encurtador-de-URL#readme",
   "dependencies": {
-    "axios": "^1.8.2"
+    "axios": "^1.8.4",
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
   }
 }
