@@ -1,19 +1,24 @@
-const axios = require('axios').default
+const axios = require('axios')
 const express = require('express')
 
 const app = express()
 
-const urlInserida = new Object({
-    url:"https://www.google.com.br/search?q=papagaio"
+let listaDeUrl = [{
+    novaUrl:"https://www.google.com.br/search?q=papagaio"
+}]
+
+app.get('/lista',(request,response)=>{
+    response.send(listaDeUrl)
 })
 
-app.listen(8080,()=>{
+app.listen(91,()=>{
     console.log('Servidor Online')
 })
 
-app.get('/',(response)=>{
-    response.send(urlInserida)
-})
+axios.get('http://localhost:91/lista')
+    .then(res=>console.log(res))
+    .catch(e=>console.log("error"))
+    .finally()
 
 
 // base para encriptar e decriptar a string
@@ -28,3 +33,4 @@ const novaString = atob(base64)
 console.log(novaString)
 
 //const urlInserida = "https://www.google.com.br/search?q=papagaio"
+//https://apidog.com/pt/blog/nodejs-express-axios/
